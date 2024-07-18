@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
+import './pages/styling/Login.css';
 
 ReactDOM.render(
   <React.StrictMode>
