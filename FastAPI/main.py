@@ -1,10 +1,6 @@
-from fastapi import FastAPI
-import sellers, buyers
-from database import create_tables  # Importer create_tables-funksjonen
+from database import *  # Importer create_tables-funksjonen and con
 
-app = FastAPI()
 
-app.include_router(buyers.router)
-app.include_router(sellers.router)
+get_database_connection()
 
 create_tables()
