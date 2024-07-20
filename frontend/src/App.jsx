@@ -9,7 +9,6 @@ import Workout from './pages/Workout';
 const App = () => {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
