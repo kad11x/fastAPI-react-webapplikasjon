@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoginForm } from '../components/LoginForm';
+import './Login.css';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -14,9 +15,11 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <LoginForm/>
-    </div>
+      </div>
+
+
   );
 };
 

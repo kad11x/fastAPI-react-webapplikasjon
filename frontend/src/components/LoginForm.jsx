@@ -1,7 +1,7 @@
 import React from 'react'
 import './LoginForm.css';
-import { FaUser } from "react-icons/fa";
-import { FaLock } from "react-icons/fa";
+import { FaUser,FaLock } from "react-icons/fa";
+
 
 
 export const LoginForm = () => {
@@ -11,11 +11,11 @@ export const LoginForm = () => {
             <h1>Login</h1>
             <div className="input-box">
                 <input type="text" placeholder='Username' required/>
-                <FaUser />
+                <FaUser className='icon' />
             </div>
             <div className="input-box">
                 <input type="password" placeholder='Username' required/>
-                <FaLock />
+                <FaLock className='icon'/>
             </div>
 
             <div className="remember-forgot">
