@@ -23,6 +23,12 @@ def create_user(user: User, db=Depends(get_db)):
     return user
 
 
+@app.delete("/users/{user_id}", response_model=dict)
+def delete_user(user_id: int, db=Depends(get_db)):
+    user_service.delete_user(user_id, db)
+    return {"message": "User deleted successfully"}
+
+
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
