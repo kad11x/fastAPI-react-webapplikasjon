@@ -1,12 +1,26 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends, HTTPException
 from database import *  # Importer create_tables-funksjonen and con
-
-get_database_connection()
+from services import user_service
+from models import *
 
 create_tables()
 
-
 app = FastAPI()
+
+
+# Dependency
+def get_db():
+    db = get_database_connection()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+@app.post("/users/", response_model=User)
+def create_user(user: User, db=Depends(get_db)):
+    user_service.add_user(user.user_Password, user.user_Name, user.user_Email, db)
+    return user
 
 
 @app.get("/")
