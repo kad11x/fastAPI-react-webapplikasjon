@@ -58,3 +58,12 @@ def create_tables():
 
     conn.commit()
     conn.close()
+
+
+# Dependency
+def get_db():
+    db = get_database_connection()
+    try:
+        yield db
+    finally:
+        db.close()
