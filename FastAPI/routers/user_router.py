@@ -5,7 +5,9 @@ from models import *
 
 create_tables()
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/user",
+)
 
 
 @router.post("/users/", response_model=User)
