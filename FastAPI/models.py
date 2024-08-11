@@ -51,6 +51,14 @@ class ExerciseSet(BaseModel):
         orm_mode = True
 
 
+# authentication classes->
+
+
+class Token(BaseModel):
+    accesse_token: str
+    token_type: str
+
+
 """# Example of how to use these models
 user_data = {
     "id_User": "1",
