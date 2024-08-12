@@ -17,8 +17,10 @@ def create_tables():
         """
         CREATE TABLE IF NOT EXISTS user (
             id_User INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_Password TEXT,
-            user_Name TEXT,
+            user_hashed_Password TEXT,
+            userName TEXT,
+            user_Fierstname TEXT,
+            user,Lastname TEXT,
             user_Email TEXT
         )
     """

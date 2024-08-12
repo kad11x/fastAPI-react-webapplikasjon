@@ -5,8 +5,10 @@ from typing import List, Optional
 # user generel user
 class User(BaseModel):
     id_User: Optional[int] = Field(None, alias="id_User")
-    user_Password: str
-    user_Name: str
+    hashed_user_Password: str
+    userName: str
+    user_Fierstname: str
+    user_Lastname: str
     user_Email: str
 
     class Config:
@@ -16,7 +18,7 @@ class User(BaseModel):
 # user login class
 class UserLogin(BaseModel):
     user_Password: str
-    user_Email: str
+    userName: str
 
     class Config:
         orm_mode = True
@@ -57,6 +59,10 @@ class ExerciseSet(BaseModel):
 class Token(BaseModel):
     accesse_token: str
     token_type: str
+
+
+class TokenData(BaseModel):
+    userName: str
 
 
 """# Example of how to use these models

@@ -1,16 +1,18 @@
-def add_user(user_Password, user_Name, user_Email, db):
+def add_user(user_Password, userName, user_Fierstname, user_Lastname, user_Email, db):
     cursor = db.cursor()
     cursor.execute(
         """
-        INSERT INTO user (user_Password, user_Name, user_Email)
+        INSERT INTO user (user_Password, userName, user_fierstName, user_Lastname, user_Email)
         VALUES (?, ?, ?)
     """,
-        (user_Password, user_Name, user_Email),
+        (user_Password, userName, user_Fierstname, user_Lastname, user_Email),
     )
     db.commit()
 
     # Print statement to show the added user details
-    print(f"Added user: Password={user_Password}, Name={user_Name}, Email={user_Email}")
+    print(
+        f"Added user: Password={user_Password}, Name={userName},Name={user_Fierstname},Name={user_Lastname}, Email={user_Email}"
+    )
 
 
 def delete_user(id_User, db):
