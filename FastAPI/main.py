@@ -46,27 +46,51 @@ def get_password_hash(password):
 
 def get_user(db, username: str):
     cursor = db.cursor()
-    cursor.execute(
-        """
-        INSERT INTO user (user_Password, userName, user_fierstName, user_Lastname, user_Email)
-        VALUES (?, ?, ?)
-    """,
-        (user_Password, userName, user_Fierstname, user_Lastname, user_Email),
-    )
-    db.commit()
-
-    # Print statement to show the added user details
-    print(
-        f"Added user: Password={user_Password}, Name={userName},Name={user_Fierstname},Name={user_Lastname}, Email={user_Email}"
-    )
-    return UserInDB(**user_data)
+    cursor.execute("SELECT * FROM user WHERE userName = ?", (username,))
+    row = cursor.fetchone()
+    if row:
+        return {
+            "id_User": row["id_User"],
+            "hashed_user_Password": row["user_hashed_Password"],
+            "userName": row["userName"],
+            "user_Fierstname": row["user_Fierstname"],
+            "user_Lastname": row["user_Lastname"],
+            "user_Email": row["user_Email"],
+        }
+    return None
 
 
 def authenticate_user(db, username: str, password: str):
-    user = get_user(db, username)
-    if not user:
+    user_data = get_user(db, username)
+    if not user_data:
         return False
-    if not verify_password(password, user.hashed_password):
+    if not verify_password(password, user_data["hashed_user_Password"]):
         return False
 
+    # Convert the dictionary back into a User model
+    user = User(**user_data)
     return user
+
+
+db = get_database_connection()
+username = "test_user"
+password = "password123"
+hashed_password = get_password_hash(password)
+
+cursor = db.cursor()
+cursor.execute(
+    """
+INSERT INTO user (user_hashed_Password, userName, user_Fierstname, user_Lastname, user_Email)
+ VALUES (?, ?, ?, ?, ?)
+""",
+    (hashed_password, username, "Test", "User", "test_user@example.com"),
+)
+db.commit()
+
+# Authenticate the user
+user = authenticate_user(db, username, "password123")
+if user:
+    print("Authentication successful!")
+    print(user)
+else:
+    print("Authentication failed!")
