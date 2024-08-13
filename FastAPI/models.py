@@ -11,17 +11,11 @@ class User(BaseModel):
     user_Lastname: str
     user_Email: str
 
-    class Config:
-        orm_mode = True
-
 
 # user login class
 class UserLogin(BaseModel):
     user_Password: str
     userName: str
-
-    class Config:
-        orm_mode = True
 
 
 class Exercise(BaseModel):
@@ -29,17 +23,11 @@ class Exercise(BaseModel):
     exercise_Name: str
     exercise_Info: str
 
-    class Config:
-        orm_mode = True
-
 
 class Template(BaseModel):
     id_Template: Optional[int] = Field(None, alias="id_Template")
     template_name: str
     user_idUser: int
-
-    class Config:
-        orm_mode = True
 
 
 class ExerciseSet(BaseModel):
@@ -48,9 +36,6 @@ class ExerciseSet(BaseModel):
     set_Reps: str
     Exercise_idExercise: int
     Template_idTemplate: int
-
-    class Config:
-        orm_mode = True
 
 
 # authentication classes->

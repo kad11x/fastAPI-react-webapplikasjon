@@ -16,10 +16,11 @@ app = FastAPI()
 app.include_router(user_router.router)
 
 
+"""
 # Dine importerte filer og modeller
 from models import (
     User,
-    UserLogin,
+    UserLogin, 
     Token,
     TokenData,
 )  # Importer modeller fra din models.py-fil
@@ -80,8 +81,8 @@ hashed_password = get_password_hash(password)
 cursor = db.cursor()
 cursor.execute(
     """
-INSERT INTO user (user_hashed_Password, userName, user_Fierstname, user_Lastname, user_Email)
- VALUES (?, ?, ?, ?, ?)
+# INSERT INTO user (user_hashed_Password, userName, user_Fierstname, user_Lastname, user_Email)
+# VALUES (?, ?, ?, ?, ?)
 """,
     (hashed_password, username, "Test", "User", "test_user@example.com"),
 )
@@ -94,3 +95,4 @@ if user:
     print(user)
 else:
     print("Authentication failed!")
+"""
