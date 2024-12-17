@@ -1,4 +1,5 @@
 def add_user(user_Password, userName, user_Fierstname, user_Lastname, user_Email, db):
+    # i need to hash the password here, but cant get the passlib library to work...
     cursor = db.cursor()
     cursor.execute(
         """

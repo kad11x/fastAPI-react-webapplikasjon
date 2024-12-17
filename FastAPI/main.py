@@ -5,8 +5,9 @@ from routers import user_router
 
 # testing av sikkerheten:
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from jose import JWTError, jwt
-from passlib.context import CryptContext
+
+# from jose import JWTError, jwt                     ->cant import porporly
+# from passlib.context import CryptContext           ->cant import porporly
 from datetime import datetime, timedelta
 
 create_tables()
