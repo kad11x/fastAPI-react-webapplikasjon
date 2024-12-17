@@ -24,4 +24,17 @@ def delete_user(id_User, db):
     print(f"Deleted user with ID: {id_User}")
 
 
-# def login_user(password,email):
+# easy solution for now, will change this later
+def login_user(userName, user_Password, db):
+    cursor = db.cursor()
+
+    cursor.execute(
+        "SELECT * FROM user WHERE userName = ? AND user_Password = ?",
+        (userName, user_Password),
+    )
+    user = cursor.fetchone()
+
+    if user:
+        return user
+    else:
+        return None
