@@ -5,7 +5,7 @@ from typing import List, Optional
 # user generel user
 class User(BaseModel):
     id_User: Optional[int] = Field(None, alias="id_User")
-    hashed_user_Password: str
+    user_Password: str
     userName: str
     user_Fierstname: str
     user_Lastname: str
