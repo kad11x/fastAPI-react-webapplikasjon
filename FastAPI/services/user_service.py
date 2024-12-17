@@ -3,8 +3,8 @@ def add_user(user_Password, userName, user_Fierstname, user_Lastname, user_Email
     cursor = db.cursor()
     cursor.execute(
         """
-        INSERT INTO user (user_Password, userName, user_fierstName, user_Lastname, user_Email)
-        VALUES (?, ?, ?)
+        INSERT INTO user (user_Password, userName, user_FierstName, user_Lastname, user_Email)
+        VALUES (?, ?, ?, ?, ?)
     """,
         (user_Password, userName, user_Fierstname, user_Lastname, user_Email),
     )

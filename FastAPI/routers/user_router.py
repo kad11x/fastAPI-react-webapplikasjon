@@ -13,8 +13,8 @@ router = APIRouter(
 @router.post("/users/", response_model=User)
 def create_user(user: User, db=Depends(get_db)):
     user_service.add_user(
-        user.hashed_user_Password,
-        user.user_Name,
+        user.user_Password,
+        user.userName,
         user.user_Fierstname,
         user.user_Lastname,
         user.user_Email,

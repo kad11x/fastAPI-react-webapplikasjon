@@ -20,7 +20,7 @@ def create_tables():
             user_Password TEXT,
             userName TEXT,
             user_Fierstname TEXT,
-            user,Lastname TEXT,
+            user_Lastname TEXT,
             user_Email TEXT
         )
     """
