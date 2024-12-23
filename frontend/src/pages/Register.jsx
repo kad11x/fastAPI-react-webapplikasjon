@@ -1,9 +1,13 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import ContactForm from '../components/ContactForm';
 const Register = () => {
   return <div>
     <Navbar/>
-    Regegister form is coming </div>;
+    <ContactForm/>
+
+        Regegister form is coming </div>;
+
 };
 
 export default Register;
