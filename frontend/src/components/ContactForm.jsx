@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import axios from "axios"; // Use Axios to send data to FastAPI
+import './ContactForm.css';
+//import { FaUser,FaLock } from "react-icons/fa";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
+    password: "",
+    firstName: "",
+    lastName: "",
     email: "",
-    message: "",
   });
 
   const handleChange = (e) => {
@@ -12,104 +17,90 @@ const ContactForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log("Form Data Submitted:", formData);
+
+    try {
+      const response = await axios.post("http://localhost:8000/api/user", formData);
+      alert("Form submitted successfully!");
+      console.log("Server Response:", response.data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit form. Please try again.");
+    }
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.heading}>Contact Us</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <label htmlFor="name" style={styles.label}>Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your full name"
-          value={formData.name}
-          onChange={handleChange}
-          style={styles.input}
-          required
-        />
+    <div className="register-wrapper">
+      <form onSubmit={handleSubmit}>
+        <h2>Register User</h2>
+        <h3>Personal Information</h3>
 
-        <label htmlFor="email" style={styles.label}>Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Your email address"
-          value={formData.email}
-          onChange={handleChange}
-          style={styles.input}
-          required
-        />
+        <div className="register-input-box">
+        <h4>Username</h4>
+          <input
+            type="text"
+            name="username"
+            placeholder=""
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <label htmlFor="message" style={styles.label}>Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          placeholder="Your message here..."
-          value={formData.message}
-          onChange={handleChange}
-          style={styles.textarea}
-          required
-        />
+        <div className="register-input-box">
+        <h4>Password</h4>
+          <input
+            type="password"
+            name="password"
+            placeholder=""
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <button type="submit" style={styles.button}>Submit</button>
+        <div className="register-input-box">
+        <h4>First Name</h4>
+          <input
+            type="text"
+            name="firstName"
+            placeholder=""
+            value={formData.firstName}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="register-input-box">
+        <h4>Last Name</h4>
+          <input
+            type="text"
+            name="lastName"
+            placeholder=""
+            value={formData.lastName}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="register-input-box">
+        <h4>Email address</h4>
+          <input
+            type="email"
+            name="email"
+            placeholder=""
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    maxWidth: "400px",
-    margin: "auto",
-    backgroundColor: "#fff",
-    padding: "20px",
-    borderRadius: "8px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-  },
-  heading: {
-    textAlign: "center",
-    marginBottom: "20px",
-    fontSize: "1.5em",
-    color: "#333",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  label: {
-    marginBottom: "5px",
-    fontWeight: "bold",
-  },
-  input: {
-    padding: "10px",
-    marginBottom: "15px",
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-    fontSize: "1em",
-  },
-  textarea: {
-    padding: "10px",
-    marginBottom: "15px",
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-    fontSize: "1em",
-  },
-  button: {
-    padding: "10px",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    fontSize: "1em",
-  },
 };
 
 export default ContactForm;

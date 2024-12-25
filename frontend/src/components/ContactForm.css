@@ -1,0 +1,75 @@
+.register-wrapper {
+    width: 90%; /* Use a percentage for width */
+    max-width: 1200px; /* Set a maximum width */
+    background: rgb(255, 255, 255);
+    color: #000000;
+    border-radius: 10px;
+    padding: 200px 80px;
+    margin: 20px auto;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    
+}
+
+.register-wrapper h2 {
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.register-wrapper h3 {
+    font-size: 18px;
+    text-align: left;
+    color: #444444;
+    margin-bottom: 60px;
+}
+.register-wrapper .input-box {
+    position: relative;
+    width: 50%;
+    height: 35px;
+    margin: 30px 0;
+}
+
+.register-input-box input {
+    width: 50%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-size: 13px;
+    color: #000000;
+    padding: 10px 15px;
+}
+
+
+
+.register-input-box input::placeholder {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.register-input-box h4 {
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 10px;
+
+}
+
+.register-wrapper button {
+    width: 10%;
+    height: 45px;
+    background: #959ffa;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 700;
+    margin-top: 50px;
+}
+
+.register-wrapper button:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}

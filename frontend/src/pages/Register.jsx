@@ -3,10 +3,10 @@ import Navbar from '../components/Navbar';
 import ContactForm from '../components/ContactForm';
 const Register = () => {
   return <div>
-    <Navbar/>
     <ContactForm/>
 
-        Regegister form is coming </div>;
+        
+        </div>;
 
 };
 
