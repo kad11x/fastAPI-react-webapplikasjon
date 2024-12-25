@@ -7,7 +7,7 @@ create_tables()
 
 
 router = APIRouter(
-    prefix="/user",
+    prefix="/api/user",
 )
 
 

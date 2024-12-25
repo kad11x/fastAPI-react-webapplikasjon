@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException
 from database import *  # Importer create_tables-funksjonen and con
 from routers import user_router
+from fastapi.middleware.cors import CORSMiddleware
 
 # testing av sikkerheten:
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
@@ -12,6 +13,15 @@ from datetime import datetime, timedelta
 create_tables()
 
 app = FastAPI()
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(user_router.router)
 
