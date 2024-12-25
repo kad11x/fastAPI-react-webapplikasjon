@@ -23,7 +23,6 @@ const ContactForm = () => {
     try {
       const response = await axios.post("http://localhost:8000/api/user/", formData);
       alert("Form submitted successfully!");
-      console.log("Server Response:", response.data);
       window.location.href = "/";
     } catch (error) {
       console.error("Error submitting form:", error);
