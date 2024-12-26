@@ -1,0 +1,52 @@
+.navbar-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    position: relative; /* Ensure relative positioning */
+    top: 0;
+    left: 0;
+}
+
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fix the navbar to the top of the viewport */
+    top: 0; /* Align to the top */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+body {
+    padding-top: 70px; /* Add padding to prevent content from overlapping the navbar */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+.btn-outline-primary {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
