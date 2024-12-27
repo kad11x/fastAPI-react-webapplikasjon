@@ -1,14 +1,13 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import TemplateCreator from '../components/TemplateCreator';
 const Services = () => {
   return <div >
     <Navbar/>
+    <h1>Templates: </h1>
     
-    <h1>diffrent componetns for showing info</h1>
-    <h2>Templet</h2>
-    <h3>training exs</h3>
-    <h4>re info</h4>
-    
+    <TemplateCreator/>
+  
     </div>;
 };
 

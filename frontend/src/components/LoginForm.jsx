@@ -24,7 +24,7 @@ export const LoginForm = () => {
         setErrorMessage('');
         // Optionally redirect or perform other actions on success
         console.log('Logged in successfully', response.data);
-        window.location.href = "/Profile";
+        window.location.href = "/Home";
       }
     } catch (error) {
       // Handle error cases

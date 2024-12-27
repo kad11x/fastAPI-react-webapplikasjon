@@ -5,12 +5,14 @@ import Profile from './pages/Profile';
 import History from './pages/History';
 import Services from './pages/Services';
 import Register from './pages/Register';
+import Home from './pages/Home';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/history" element={<History />} />
