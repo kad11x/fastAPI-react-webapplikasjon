@@ -37,8 +37,8 @@ function Navbar() {
                                         Services
                                     </button>
                                     <ul className="dropdown-menu dropdown-menu-dark">
-                                        <li><a className="dropdown-item" href="/service/create-templates">Create Templates</a></li>
-                                        <li><a className="dropdown-item" href="/service/workouts">Brows Workout</a></li>
+                                        <li><a className="dropdown-item" href="/create-templates">Create Templates</a></li>
+                                        <li><a className="dropdown-item" href="/workouts">Brows Workout</a></li>
                                     </ul>
                                     </li>
                                 </ul>
@@ -46,6 +46,9 @@ function Navbar() {
 
                             <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="/profile">Profile</a>
+                            </li>
+                            <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/Ai_page">Ai page</a>
                             </li>
                         </ul>
                         <form className="d-flex">

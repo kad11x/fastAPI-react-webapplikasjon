@@ -5,6 +5,7 @@ const Home = () => {
   return <div>
     <Navbar/>
     Gain is Pain
+    I will show you
   </div>;
 };
 
